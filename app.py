@@ -9,13 +9,18 @@ from deep_translator import GoogleTranslator
 from datetime import datetime, timedelta
 
 import firebase_admin
-from firebase_admin import credentials, messaging
+from firebase_admin import credentials
+import json
+import os
 
-# 🔐 Step 3: Load Firebase credentials from GitHub Secret
 firebase_key_json = os.environ["FIREBASE_PRIVATE_KEY_JSON"]
-cred = credentials.Certificate(json.loads(firebase_key_json))
-firebase_admin.initialize_app(cred)
+firebase_key_data = json.loads(firebase_key_json)
 
+# ✅ Only do this once, even if the script re-runs
+if not firebase_admin._apps:
+    cred = credentials.Certificate(firebase_key_data)
+    firebase_admin.initialize_app(cred)
+    
 # code for extracing medicines name duration and timing from the answer
 def extract_medicine_name(question):
     # Looks for common medicine inquiry phrases
