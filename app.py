@@ -20,6 +20,23 @@ firebase_key_data = json.loads(firebase_key_json)
 if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_key_data)
     firebase_admin.initialize_app(cred)
+
+import streamlit_javascript as st_js
+
+# Listen for the token sent from the HTML script
+token = st_js.st_javascript("""
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'FCM_TOKEN') {
+    window.token = event.data.token;
+  }
+});
+window.token;
+""")
+
+# Save the token in session state (or database later)
+if token:
+    st.session_state["fcm_token"] = token
+
     
 # code for extracing medicines name duration and timing from the answer
 def extract_medicine_name(question):
