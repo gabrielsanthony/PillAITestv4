@@ -3,3 +3,4 @@ openai>=1.0.0
 deep-translator
 rapidfuzz
 firebase-admin
+pip install streamlit-javascript
