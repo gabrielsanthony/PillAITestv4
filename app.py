@@ -70,6 +70,7 @@ messaging
 # Save the token in session state (or database later)
 if token:
     st.session_state["fcm_token"] = token
+st.write("📲 Your FCM token:", st.session_state.get("fcm_token"))
 
     
 # code for extracing medicines name duration and timing from the answer
