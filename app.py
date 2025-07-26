@@ -142,6 +142,22 @@ st.markdown("""
         color: white;
         padding: 0.6em !important;
     }
+
+/* 🧩 Reduce space below the Send button */
+.stButton {
+    margin-bottom: 0.2rem !important;
+}
+
+/* 📉 Pull up the orange warning closer to the button */
+div[data-testid="stMarkdownContainer"] > div:has(> div[style*="text-align: left"]) {
+    margin-top: -0.5rem !important;
+}
+
+/* 🧵 Reduce space between toggles and what comes after (reminder/disclaimer) */
+div[data-testid="stHorizontalBlock"] + div {
+    margin-top: -0.6rem !important;
+}
+    
     </style>
 """, unsafe_allow_html=True)
 
