@@ -58,6 +58,7 @@ messaging.requestPermission()
 window.token;
 """)
 
+
 st.session_state["fcm_token"] = token
 
 if (!firebase.apps?.length) {
