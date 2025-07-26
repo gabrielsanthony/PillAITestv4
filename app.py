@@ -41,7 +41,7 @@ max_wait = 15  # seconds
 elapsed = 0
 
 # Page config
-st.set_page_config(page_title="Pill-AI 3.0", page_icon="💊", layout="wide")
+st.set_page_config(page_title="Pill-AI 4.0", page_icon="💊", layout="wide")
 
 # initialise reminder form
 if "show_reminder_form" not in st.session_state:
@@ -627,10 +627,6 @@ faq_title = {
     "Mandarin": "❓ 常见问题 – 点击展开"
 }.get(language, "❓ FAQ – Click to expand")
 
-# FAQ
-with st.expander(faq_title):
-    st.markdown(faq_sections[language])
-
 # FAQ content in multiple languages
 faq_sections = {
     "English": """
@@ -823,3 +819,7 @@ Pill-AI 是一个帮助新西兰人了解药品信息的聊天机器人。
 由新西兰团队开发，目的是让药品信息更易懂。
 """
 }
+
+# FAQ
+with st.expander(faq_title):
+    st.markdown(faq_sections[language])
