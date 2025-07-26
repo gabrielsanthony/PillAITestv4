@@ -31,14 +31,14 @@ import streamlit_javascript as st_js
 
 token = st_js.st_javascript("""
 const firebaseConfig = {
-  apiKey: "AIzaSyC1zPRLOhWJlsWB-3Ob_GeMzaSxJb-Fzts",
-  authDomain: "pillaiv4-25.firebaseapp.com",
-  projectId: "pillaiv4-25",
+  apiKey: "AIzaSyC1zPRL0hWJlsWB-3Ob_GeMza5xJb-Fzts",
+  authDomain: "pillai4-25.firebaseapp.com",
+  projectId: "pillai4-25",
   messagingSenderId: "1057182968723",
   appId: "1:1057182968723:web:9c75be172385c7898e1666"
 };
 
-if (!firebase.apps?.length) {
+if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
@@ -47,7 +47,7 @@ const messaging = firebase.messaging();
 messaging
   .requestPermission()
   .then(() => messaging.getToken({
-    vapidKey: "BMezexq4S4zz4jkejASOtjwWwMDN6jHeLCi2iUdBEAeTcV70XHvNkDLCd84cSfB1Tu-FgMXqVtik5Xb7uUILciA"
+    vapidKey: "BMezexq4S4zz4jkejASOtjwWwMDN6jHeLCi2idUdBEAeTcV70XHvNkDLCd84cSfB1Tu-FgMXqVtik5Xb7uUILciA"
   }))
   .then((token) => {
     window.parent.postMessage({ type: "FCM_TOKEN", token }, "*");
@@ -55,8 +55,6 @@ messaging
   .catch((err) => {
     console.error("FCM error:", err);
   });
-
-window.token;
 """)
 
 st.session_state["fcm_token"] = token
