@@ -76,6 +76,12 @@ st.markdown("""
         margin-top: 4px;
         width: 100%;
     }
+
+    # Reduce space BELOW the Send button */
+    .stButton {
+        margin-bottom: 0.2rem !important;
+    }
+
     .stButton button:hover {
         background-color: #3b82f6;
         color: white;
@@ -398,6 +404,16 @@ with col_center[1]:
                 margin-top: -0.5rem;
                 margin-bottom: 0.5rem;
             }
+            
+            #📉 Reduce gap between Send button and toggles/disclaimer */
+            div[data-testid="stMarkdownContainer"] > div:has(> div[style*="text-align: left"]) {
+                margin-top: -0.5rem !important;
+            }
+            # 🧵 Reduce vertical space between toggles and reminder section */
+            div[data-testid="stHorizontalBlock"] + div {
+                margin-top: -0.6rem !important;
+            }
+
             label[data-testid="stToggle"] {
                 font-size: 1.05em;
                 font-weight: 500;
