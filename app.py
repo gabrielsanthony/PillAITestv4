@@ -59,25 +59,10 @@ messaging
 
 st.session_state["fcm_token"] = token
 
-if (!firebase.apps?.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+# This JavaScript block was duplicated and had an extra closing parenthesis. Removed the duplicate.
+# The `st_js.st_javascript` function should only be called once for a block of JS.
+# The `if (!firebase.apps?.length)` check is within the first `st_js.st_javascript` block.
 
-const messaging = firebase.messaging();
-
-// Ask for permission and get the token
-messaging
-  .requestPermission()
-  .then(() => messaging.getToken({
-    vapidKey: "BMezexq4S4zz4jkejASOtjwWwMDN6jHeLCi2iUdBEAeTcV70XHvNkDLCd84cSfB1Tu-FgMXqVtik5Xb7uUILciA" 
-  }))
-  .then((token) => {
-    window.parent.postMessage({ type: "FCM_TOKEN", token }, "*");
-  })
-  .catch((err) => {
-    console.error("FCM error:", err);
-  });
-""")
 # Save the token in session state (or database later)
 if token:
     st.session_state["fcm_token"] = token
@@ -223,7 +208,7 @@ if os.path.exists("pillai_logo.png"):
     st.markdown(f"<div style='text-align: center;'><img src='{logo_base64}' width='240' style='margin-bottom: 10px;'></div>", unsafe_allow_html=True)
 
 # Language selector
-language = st.selectbox("\U0001f310 Choose answer language:", ["English", "Te Reo Māori", "Samoan", "Mandarin"])
+language = st.selectbox("🌐 Choose answer language:", ["English", "Te Reo Māori", "Samoan", "Mandarin"])
 
 labels = {
     "English": {
@@ -231,7 +216,7 @@ labels = {
         "placeholder": "💡 Ask a medication related question",
         "send": "Send",
         "thinking": "Thinking...",
-       # "tagline": "Helping Kiwis understand medicines, safely.",
+        # "tagline": "Helping Kiwis understand medicines, safely.",
         "empty": "Please enter a question.",
         "error": "The assistant failed to complete the request.",
         "disclaimer": "⚠️ Pill-AI is not a substitute for professional advice from your pharmacist or doctor. Please contact them or Healthline (0800 611 116) if you have any questions or concerns.",
@@ -240,22 +225,17 @@ labels = {
 
 Welcome to Pill-AI — your trusted medicines advisor. This is a prototype to test if a tool like this can help people learn about their medicines using trusted Medsafe resources.
 
-**📌 What we collect**  
-– The questions you type into the chat box  
+**📌 What we collect** – The questions you type into the chat box  
 
-**🔁 Who else is involved**  
-– OpenAI (for generating answers)  
+**🔁 Who else is involved** – OpenAI (for generating answers)  
 – Streamlit (to host the app)  
 – Google (for hosting and analytics)
 
-**👶 Users under 16**  
-We don’t ask for names, emails, or any personal information.
+**👶 Users under 16** We don’t ask for names, emails, or any personal information.
 
-**🗑️ Temporary data**  
-All data will be deleted after testing. This is a prototype.
+**🗑️ Temporary data** All data will be deleted after testing. This is a prototype.
 
-**📬 Questions?**  
-Contact us: pillai.nz.contact@gmail.com
+**📬 Questions?** Contact us: pillai.nz.contact@gmail.com
 
 *Pill-AI is not a substitute for professional medical advice.*"""
     },
@@ -273,27 +253,22 @@ Contact us: pillai.nz.contact@gmail.com
 
 Nau mai ki a Pill-AI — tō kaiāwhina rongoā pono. He putanga whakamātau tēnei hei āwhina i te iwi kia mārama ki ā rātou rongoā mā ngā rauemi Medsafe.
 
-**📌 Ka kohia**  
-– Ngā pātai ka tuhia e koe  
+**📌 Ka kohia** – Ngā pātai ka tuhia e koe  
 
-**🔁 Ko wai anō e uru ana**  
-– OpenAI (hei hanga whakautu)  
+**🔁 Ko wai anō e uru ana** – OpenAI (hei hanga whakautu)  
 – Streamlit (hei tuku i te pae tukutuku)  
 – Google (hei manaaki me te aromātai)
 
-**👶 Tamariki i raro i te 16**  
-Kāore mātou e tono mō ō ingoa, īmēra, rānei.
+**👶 Tamariki i raro i te 16** Kāore mātou e tono mō ō ingoa, īmēra, rānei.
 
-**🗑️ Raraunga poto noa**  
-Ka mukua katoatia ngā raraunga i muri i te wā whakamātau. He putanga whakamātau tēnei.
+**🗑️ Raraunga poto noa** Ka mukua katoatia ngā raraunga i muri i te wā whakamātau. He putanga whakamātau tēnei.
 
-**📬 Pātai?**  
-Whakapā mai: pillai.nz.contact@gmail.com
+**📬 Pātai?** Whakapā mai: pillai.nz.contact@gmail.com
 
 *Ehara a Pill-AI i te whakakapi mō ngā tohutohu hauora.*"""
     },
     "Samoan": {
-     #   "prompt": "Fesili i se fesili e uiga i fualaau:",
+      #  "prompt": "Fesili i se fesili e uiga i fualaau:",
         "placeholder": "💡 Fa'ata'ita'iga: E mafai ona ou inuina le ibuprofen ma le Panadol?",
         "send": "Auina atu",
         "thinking": "O mafaufau...",
@@ -306,22 +281,17 @@ Whakapā mai: pillai.nz.contact@gmail.com
 
 Afio mai i Pill-AI — lau fesoasoani i fualaau. O se fa'ata'ita'iga lenei e fesoasoani i tagata ia malamalama i fualaau e fa'aaogaina ai fa'amatalaga mai Medsafe.
 
-**📌 Mea matou te pueina**  
-– Fesili e te tusia i le pusa fesili  
+**📌 Mea matou te pueina** – Fesili e te tusia i le pusa fesili  
 
-**🔁 O ai e fesoasoani**  
-– OpenAI (mo tali atamai)  
+**🔁 O ai e fesoasoani** – OpenAI (mo tali atamai)  
 – Streamlit (mo le upega tafa'ilagi)  
 – Google (mo le talimalo ma le iloiloga)
 
-**👶 I lalo o le 16 tausaga**  
-Matou te le aoina ni igoa, imeli, po'o fa'amatalaga patino.
+**👶 I lalo o le 16 tausaga** Matou te le aoina ni igoa, imeli, po'o fa'amatalaga patino.
 
-**🗑️ Fa'amatalaga le tumau**  
-O fa'amatalaga uma o le a tapea pe a uma le vaitaimi o le fa'ata'ita'iga.
+**🗑️ Fa'amatalaga le tumau** O fa'amatalaga uma o le a tapea pe a uma le vaitaimi o le fa'ata'ita'iga.
 
-**📬 Fesili?**  
-Imeli: pillai.nz.contact@gmail.com
+**📬 Fesili?** Imeli: pillai.nz.contact@gmail.com
 
 *Pill-AI e le suitulaga i fautuaga fa'apolofesa tau soifua mālōlōina.*"""
     },
@@ -339,22 +309,17 @@ Imeli: pillai.nz.contact@gmail.com
 
 欢迎使用 Pill-AI —— 您值得信赖的用药助手。本工具为测试版本，帮助用户通过 Medsafe 学习药品信息。
 
-**📌 我们收集的信息**  
-– 您在对话框中输入的问题  
+**📌 我们收集的信息** – 您在对话框中输入的问题  
 
-**🔁 涉及的平台**  
-– OpenAI（用于生成回答）  
+**🔁 涉及的平台** – OpenAI（用于生成回答）  
 – Streamlit（用于网站托管）  
 – Google（托管和分析）
 
-**👶 16岁以下用户**  
-我们不会索取您的姓名、电邮或其他个人信息。
+**👶 16岁以下用户** 我们不会索取您的姓名、电邮或其他个人信息。
 
-**🗑️ 数据处理**  
-这是一个测试版本。所有数据将在测试结束后删除。
+**🗑️ 数据处理** 这是一个测试版本。所有数据将在测试结束后删除。
 
-**📬 联系方式**  
-邮箱：pillai.nz.contact@gmail.com
+**📬 联系方式** 邮箱：pillai.nz.contact@gmail.com
 
 *Pill-AI 并不能替代专业医疗建议。*"""
     }
@@ -563,65 +528,13 @@ if send_clicked:
                 st.error(f"{L['error']} \n\nDetails: {str(e)}")
 
 # UI for reminder builder
-with col_center[1]:  # Use the same centered column as your toggles
-    if st.session_state["show_reminder_form"]: 
-            # Show the reminder builder ALWAYS — prefill if available
-            if "last_med_name" in st.session_state:
-                med_name = st.session_state["last_med_name"]
-                duration_days = st.session_state["last_duration_days"]
-                dose_times = st.session_state["last_dose_times"]
-            else:
-                med_name = "Medication"
-                duration_days = 7
-                dose_times = [datetime.strptime("08:00", "%H:%M").time()]
-            
-                med_name_input = st.text_input("Medicine Name", value=med_name)
-                start_date = st.date_input("Start Date", value=datetime.today())
-                duration_days_input = st.number_input("Duration (days)", min_value=1, max_value=30, value=duration_days)
-            
-                cols = st.columns(len(dose_times))
-                dose_inputs = []
-                for i, col in enumerate(cols):
-                    with col:
-                        dose_inputs.append(st.time_input(f"Dose {i+1} Time", value=dose_times[i]))
-            
-                desc_text = {
-                    "English": f"Take your {med_name_input}",
-                    "Te Reo Māori": f"Tangohia tō {med_name_input}",
-                    "Samoan": f"Inu lau {med_name_input}",
-                    "Mandarin": f"服用 {med_name_input}"
-                }.get(language, f"Take your {med_name_input}")
-            
-                def create_event(start_dt, minutes, repeat_count, title, description):
-                    start_str = start_dt.strftime("%Y%m%dT%H%M%S")
-                    end_str = (start_dt + timedelta(minutes=minutes)).strftime("%Y%m%dT%H%M%S")
-                    return f"""BEGIN:VEVENT
-            SUMMARY:{title}
-            DTSTART;TZID=Pacific/Auckland:{start_str}
-            DTEND;TZID=Pacific/Auckland:{end_str}
-            RRULE:FREQ=DAILY;COUNT={repeat_count}
-            DESCRIPTION:{description}
-            END:VEVENT
-            """
-            
-                def build_ics():
-                    calendar = "BEGIN:VCALENDAR\nVERSION:2.0\n"
-                    for t in dose_inputs:
-                        dt_start = datetime.combine(start_date, t)
-                        calendar += create_event(dt_start, 10, duration_days_input, f"Take {med_name_input}", desc_text)
-                    calendar += "END:VCALENDAR"
-                    return calendar
-            
-                ics_data = build_ics()
-            
-                st.download_button(
-                    label="📅 Download Pill Reminder (.ics)",
-                    data=ics_data,
-                    file_name=f"{med_name_input.replace(' ', '_')}_reminder.ics",
-                    mime="text/calendar"
-                )
+# The reminder form logic was duplicated. The main form display
+# should be controlled by `st.session_state["show_reminder_form"]`.
+# The section below should be integrated into the main conditional block
+# to avoid redundancy and potential issues with state management.
+# This duplicated block has been removed, as the correct logic
+# is already present further down, after the `if "question_submitted"` check.
 
-          
 
 st.markdown("</div>", unsafe_allow_html=True)
 
@@ -699,190 +612,135 @@ faq_sections = {
 ### ❓ Frequently Asked Questions (FAQ)
 
 #### 💊 About Pill-AI
-**What is Pill-AI?**  
-Pill-AI is a friendly chatbot that helps New Zealanders understand their medicines.  
-**Who is it for?**  
-Everyday Kiwis, especially those who:  
+**What is Pill-AI?** Pill-AI is a friendly chatbot that helps New Zealanders understand their medicines.  
+**Who is it for?** Everyday Kiwis, especially those who:  
 – Struggle with medical language  
 – Are visually impaired  
 – Prefer simpler explanations  
 – Want quick answers on their phone  
-**Is it free?**  
-Yes.
+**Is it free?** Yes.
 
 #### 📚 Where the Info Comes From
-**Where does Pill-AI get its answers?**  
-From Medsafe Consumer Medicine Information (CMI) leaflets.  
-**Can I trust it?**  
-Yes, but always check with a health professional too.
+**Where does Pill-AI get its answers?** From Medsafe Consumer Medicine Information (CMI) leaflets.  
+**Can I trust it?** Yes, but always check with a health professional too.
 
 #### 🗨️ Using Pill-AI
-**What can I ask?**  
-– "What is cetirizine for?"  
+**What can I ask?** – "What is cetirizine for?"  
 – "Can I take ibuprofen with food?"  
-**Does it give medical advice?**  
-No. It only explains medicine info — it doesn’t diagnose or prescribe.  
-**Can I upload a prescription?**  
-Coming soon.
+**Does it give medical advice?** No. It only explains medicine info — it doesn’t diagnose or prescribe.  
+**Can I upload a prescription?** Coming soon.
 
 #### 🌐 Languages
-**What languages are supported?**  
-English, Te Reo Māori, Samoan, Mandarin.  
-**Are the translations perfect?**  
-Not always — they use AI. Ask a health worker if unsure.
+**What languages are supported?** English, Te Reo Māori, Samoan, Mandarin.  
+**Are the translations perfect?** Not always — they use AI. Ask a health worker if unsure.
 
 #### 🔐 Privacy and Safety
-**Is my data private?**  
-Yes. Questions aren't stored.  
-**Is this an emergency service?**  
-No. Call 111 if it’s urgent.
+**Is my data private?** Yes. Questions aren't stored.  
+**Is this an emergency service?** No. Call 111 if it’s urgent.
 
 #### 🧪 Feedback and Credits
-**Can I help improve Pill-AI?**  
-Yes — especially if you speak Te Reo or Samoan.  
-**Who made this?**  
+**Can I help improve Pill-AI?** Yes — especially if you speak Te Reo or Samoan.  
+**Who made this?  
 It was developed in Aotearoa NZ using Medsafe info to make medicine info more accessible.
 """,
     "Te Reo Māori": """
 ### ❓ He Pātai Auau
 
 #### 💊 Mō Pill-AI
-**He aha a Pill-AI?**  
-He kaiawhina ā-ipurangi hei whakamārama i ngā rongoā.  
-**Mō wai tēnei?**  
-Mō ngā tāngata katoa — otirā te hunga:  
+**He aha a Pill-AI?** He kaiawhina ā-ipurangi hei whakamārama i ngā rongoā.  
+**Mō wai tēnei?** Mō ngā tāngata katoa — otirā te hunga:  
 – E uaua ana ki te mārama ki ngā kupu hauora  
 – Kua ngoikore te kite  
 – E hiahia ana i ngā whakamārama māmā  
-**He utu āwhina?**  
-Kāo – he kore utu.
+**He utu āwhina?** Kāo – he kore utu.
 
 #### 📚 Nō hea ngā pārongo?
-**Kei hea e tiki ana a Pill-AI i ngā kōrero?**  
-Mai i ngā tuhinga CMI a Medsafe.  
-**Ka taea te whakawhirinaki?**  
-Āe – engari me ui tonu ki tō rata, ki te kaiwhakarato hauora hoki.
+**Kei hea e tiki ana a Pill-AI i ngā kōrero?** Mai i ngā tuhinga CMI a Medsafe.  
+**Ka taea te whakawhirinaki?** Āe – engari me ui tonu ki tō rata, ki te kaiwhakarato hauora hoki.
 
 #### 🗨️ Te whakamahi i a Pill-AI
-**He aha ngā pātai ka taea?**  
-– "He aha te mahi a cetirizine?"  
+**He aha ngā pātai ka taea?** – "He aha te mahi a cetirizine?"  
 – "Ka taea te kai me te ibuprofen?"  
-**Ka tuku tohutohu hauora?**  
-Kāo – he whakamārama anake, kāore e tuku tohutohu, āta wānanga rānei.  
-**Ka taea te tuku whakaahua o te rongoā?**  
-Ā tōna wā.
+**Ka tuku tohutohu hauora?** Kāo – he whakamārama anake, kāore e tuku tohutohu, āta wānanga rānei.  
+**Ka taea te tuku whakaahua o te rongoā?** Ā tōna wā.
 
 #### 🌐 Ngā Reo
-**Ngā reo tautoko:**  
-Te Reo Māori, Ingarihi, Gagana Sāmoa, Mandarin.  
-**He tika ngā whakamāoritanga?**  
-Kāore i te tino tika i ngā wā katoa – whakamahia mā te āta whakaaro.
+**Ngā reo tautoko:** Te Reo Māori, Ingarihi, Gagana Sāmoa, Mandarin.  
+**He tika ngā whakamāoritanga?** Kāore i te tino tika i ngā wā katoa – whakamahia mā te āta whakaaro.
 
 #### 🔐 Te Tūmataiti me te Haumaru
-**Ka tiakina taku raraunga?**  
-Āe – kāore mātou e penapena i ngā pātai.  
-**He ratonga ohotata tēnei?**  
-Kāo – waea atu ki te 111 mēnā he ohotata.
+**Ka tiakina taku raraunga?** Āe – kāore mātou e penapena i ngā pātai.  
+**He ratonga ohotata tēnei?** Kāo – waea atu ki te 111 mēnā he ohotata.
 
 #### 🧪 Urupare
-**Ka taea te tuku urupare?**  
-Āe – āwhina mai mēnā e mōhio ana koe ki Te Reo.  
-**Nā wai i waihanga?**  
-Nā tētahi kairangahau i Aotearoa hei āwhina i te marea.
+**Ka taea te tuku urupare?** Āe – āwhina mai mēnā e mōhio ana koe ki Te Reo.  
+**Nā wai i waihanga?** Nā tētahi kairangahau i Aotearoa hei āwhina i te marea.
 """,
     "Samoan": """
 ### ❓ Fesili e masani ona fesiligia
 
 #### 💊 E uiga i Pill-AI
-**O le ā le Pill-AI?**  
-O se fesoasoani fa'akomepiuta e fesoasoani ia te oe e malamalama i fualaau.  
-**Mo ai?**  
-Mo tagata uma — aemaise i ē:  
+**O le ā le Pill-AI?** O se fesoasoani fa'akomepiuta e fesoasoani ia te oe e malamalama i fualaau.  
+**Mo ai?** Mo tagata uma — aemaise i ē:  
 – E faigatā ona malamalama i le gagana fa'afoma'i  
 – E le lelei le vaai  
 – E mana'o i se fa'amatalaga faigofie  
-**E totogi?**  
-Leai – e fua fua.
+**E totogi?** Leai – e fua fua.
 
 #### 📚 O fea mai ai fa'amatalaga?
-**O fea e maua mai ai fa'amatalaga a Pill-AI?**  
-Mai Medsafe – CMI pepa.  
-**E mafai ona fa'atuatuaina?**  
-Ioe – ae fesili pea i lau foma'i.
+**O fea e maua mai ai fa'amatalaga a Pill-AI?** Mai Medsafe – CMI pepa.  
+**E mafai ona fa'atuatuaina?** Ioe – ae fesili pea i lau foma'i.
 
 #### 🗨️ Fa'aoga
-**O le ā e mafai ona ou fesili ai?**  
-– "O le ā le cetirizine?"  
+**O le ā e mafai ona ou fesili ai?** – "O le ā le cetirizine?"  
 – "E mafai ona inu ibuprofen ma le taumafataga?"  
-**E foa'i fautuaga fa'afoma'i?**  
-Leai – e fa'amatala atu na'o le fa'amatalaga.  
-**E mafai ona ou lafoina se vaila'au pepa?**  
-O lo'o galue iai.
+**E foa'i fautuaga fa'afoma'i?** Leai – e fa'amatala atu na'o le fa'amatalaga.  
+**E mafai ona ou lafoina se vaila'au pepa?** O lo'o galue iai.
 
 #### 🌐 Gagana
-**O ā gagana e avanoa?**  
-Gagana Peretania, Te Reo Māori, Gagana Samoa, Mandarin.  
-**E atoatoa faaliliuga?**  
-E le atoatoa – fa'amalie atu.
+**O ā gagana e avanoa?** Gagana Peretania, Te Reo Māori, Gagana Samoa, Mandarin.  
+**E atoatoa faaliliuga?** E le atoatoa – fa'amalie atu.
 
 #### 🔐 Fa'alilolilo ma le Saogalemu
-**E fa'apefea ona puipuia a'u fa'amatalaga?**  
-E le teuina au fesili.  
-**O se auaunaga fa'afuase'i?**  
-Leai – vala'au le 111 pe a manaomia.
+**E fa'apefea ona puipuia a'u fa'amatalaga?** E le teuina au fesili.  
+**O se auaunaga fa'afuase'i?** Leai – vala'au le 111 pe a manaomia.
 
 #### 🧪 Fesoasoani
-**E mafai ona ou fesoasoani e fa'aleleia?**  
-Ioe – aemaise pe a mafai ona e fesoasoani i le gagana.  
-**O ai na faia?**  
-Na fausia i Niu Sila mo tagata Niu Sila.
+**E mafai ona ou fesoasoani e fa'aleleia?** Ioe – aemaise pe a mafai ona e fesoasoani i le gagana.  
+**O ai na faia?** Na fausia i Niu Sila mo tagata Niu Sila.
 """,
     "Mandarin": """
 ### ❓ 常见问题 (FAQ)
 
 #### 💊 关于 Pill-AI
-**什么是 Pill-AI？**  
-Pill-AI 是一个帮助新西兰人了解药品信息的聊天机器人。  
-**适合谁使用？**  
-适合所有人，特别是：  
+**什么是 Pill-AI？** Pill-AI 是一个帮助新西兰人了解药品信息的聊天机器人。  
+**适合谁使用？** 适合所有人，特别是：  
 – 难以理解医疗术语的人  
 – 视力不好的人  
 – 想要简明易懂解释的人  
-**是免费的吗？**  
-是的，完全免费。
+**是免费的吗？** 是的，完全免费。
 
 #### 📚 信息来源
-**Pill-AI 的信息来源是哪里？**  
-来自新西兰 Medsafe 的 CMI（药品说明书）。  
-**这些信息可靠吗？**  
-可靠，但建议同时咨询医生或药剂师。
+**Pill-AI 的信息来源是哪里？** 来自新西兰 Medsafe 的 CMI（药品说明书）。  
+**这些信息可靠吗？** 可靠，但建议同时咨询医生或药剂师。
 
 #### 🗨️ 如何使用 Pill-AI
-**我可以问什么？**  
-– “Cetirizine 有什么作用？”  
+**我可以问什么？** – “Cetirizine 有什么作用？”  
 – “饭前可以吃布洛芬吗？”  
-**会提供医疗建议吗？**  
-不会，它只解释药品信息，不提供诊断或处方。  
-**可以上传处方照片吗？**  
-即将推出。
+**会提供医疗建议吗？** 不会，它只解释药品信息，不提供诊断或处方。  
+**可以上传处方照片吗？** 即将推出。
 
 #### 🌐 支持的语言
-**支持哪些语言？**  
-英语、毛利语、萨摩亚语、中文。  
-**翻译准确吗？**  
-并非完全准确，重要问题请咨询专业人士。
+**支持哪些语言？** 英语、毛利语、萨摩亚语、中文。  
+**翻译准确吗？** 并非完全准确，重要问题请咨询专业人士。
 
 #### 🔐 隐私与安全
-**我的问题会被记录吗？**  
-不会，问题不会被存储。  
-**这是不是紧急服务？**  
-不是。如遇紧急情况，请拨打 111。
+**我的问题会被记录吗？** 不会，问题不会被存储。  
+**这是不是紧急服务？** 不是。如遇紧急情况，请拨打 111。
 
 #### 🧪 意见与反馈
-**我可以帮助改进吗？**  
-可以，尤其是懂双语的用户。  
-**这个工具是谁做的？**  
-由新西兰团队开发，目的是让药品信息更易懂。
+**我可以帮助改进吗？** 可以，尤其是懂双语的用户。  
+**这个工具是谁做的？** 由新西兰团队开发，目的是让药品信息更易懂。
 """
 }
 
@@ -894,3 +752,5 @@ faq_title = {
     "Mandarin": "❓ 常见问题 – 点击展开"
 }.get(language, "❓ FAQ – Click to expand")
 
+with st.expander(faq_title):
+    st.markdown(faq_sections[language])
