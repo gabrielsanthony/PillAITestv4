@@ -14,9 +14,11 @@ import json
 import os
 
 st.markdown("""
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging-compat.js"></script>
+<!-- Firebase SDK scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging-compat.js"></script>
 """, unsafe_allow_html=True)
+
 
 
 firebase_key_json = os.environ["FIREBASE_PRIVATE_KEY_JSON"]
