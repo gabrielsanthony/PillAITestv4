@@ -4,3 +4,4 @@ deep-translator
 rapidfuzz
 firebase-admin
 pip install streamlit-javascript
+streamlit-javascript
