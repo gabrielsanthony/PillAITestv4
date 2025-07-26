@@ -125,7 +125,7 @@ st.markdown("""
     }
     /* Reduce margin below the language dropdown */
     div[data-testid="stSelectbox"] {
-    margin-bottom: 0.3rem !important;
+    margin-bottom: 0.0rem !important;
     }
     @media (max-width: 768px) {
     .stTextInput input {
