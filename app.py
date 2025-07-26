@@ -92,15 +92,14 @@ st.markdown("""
     color: white !important;
     outline: none !important;
     box-shadow: none !important;
-}
+    }
     .stButton button:active {
     background-color: #2563eb !important;
     color: white !important;
     outline: none !important;
     box-shadow: none !important;
-}
-
-
+    }
+    
     .block-container { padding-top: 2rem; padding-bottom: 2rem; }
     .section {
         background-color: #ffffff;
