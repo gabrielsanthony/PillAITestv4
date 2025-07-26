@@ -44,7 +44,8 @@ if (!firebase.apps?.length) {
 
 const messaging = firebase.messaging();
 
-messaging.requestPermission()
+messaging
+  .requestPermission()
   .then(() => messaging.getToken({
     vapidKey: "BMezexq4S4zz4jkejASOtjwWwMDN6jHeLCi2iUdBEAeTcV70XHvNkDLCd84cSfB1Tu-FgMXqVtik5Xb7uUILciA"
   }))
