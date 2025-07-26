@@ -619,6 +619,14 @@ st.markdown(f"""
 with st.expander(L["privacy_title"]):
     st.markdown(L["privacy"])
 
+# Add FAQ section using language-based selection
+faq_title = {
+    "English": "❓ FAQ – Click to expand",
+    "Te Reo Māori": "❓ He Pātai Auau – Pāwhiritia kia kite",
+    "Samoan": "❓ Fesili masani – Kiliki e faitau",
+    "Mandarin": "❓ 常见问题 – 点击展开"
+}.get(language, "❓ FAQ – Click to expand")
+
 # FAQ
 with st.expander(faq_title):
     st.markdown(faq_sections[language])
@@ -815,11 +823,3 @@ Pill-AI 是一个帮助新西兰人了解药品信息的聊天机器人。
 由新西兰团队开发，目的是让药品信息更易懂。
 """
 }
-
-# Add FAQ section using language-based selection
-faq_title = {
-    "English": "❓ FAQ – Click to expand",
-    "Te Reo Māori": "❓ He Pātai Auau – Pāwhiritia kia kite",
-    "Samoan": "❓ Fesili masani – Kiliki e faitau",
-    "Mandarin": "❓ 常见问题 – 点击展开"
-}.get(language, "❓ FAQ – Click to expand")
