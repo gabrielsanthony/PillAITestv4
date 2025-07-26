@@ -59,7 +59,6 @@ messaging
 window.token;
 """)
 
-
 st.session_state["fcm_token"] = token
 
 if (!firebase.apps?.length) {
