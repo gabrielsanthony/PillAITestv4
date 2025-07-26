@@ -619,6 +619,10 @@ st.markdown(f"""
 with st.expander(L["privacy_title"]):
     st.markdown(L["privacy"])
 
+# FAQ
+with st.expander(faq_title):
+    st.markdown(faq_sections[language])
+
 # FAQ content in multiple languages
 faq_sections = {
     "English": """
